@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DatabaseActivity">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPersonList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight= "1"/>
+
+    <EditText
+        android:id="@+id/etFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First Name"/>
+
+    <EditText
+        android:id="@+id/etLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Last Name"/>
+
+    <EditText
+        android:id="@+id/etSsn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="SSN"/>
+
+    <Button
+        android:id="@+id/btnAddPersonToList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD PERSON TO LIST"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/btnDeletePersonToList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DELETE PERSON TO LIST"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/btnUpdatePersonToList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UPDATE PERSON TO LIST"
+        android:onClick="onClick"/>
+
+</LinearLayout>

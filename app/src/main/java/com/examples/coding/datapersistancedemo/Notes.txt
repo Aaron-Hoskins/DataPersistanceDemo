@@ -1,0 +1,72 @@
+- Data Persistence
+    - Saving data to non volatile memory
+    - Data is retained after application is closed
+
+    - 4 Different types of Data Persistence
+        1. Shared Preferences
+        2. Internal File Storage
+        3. External File Strorage
+        4. Relational Database - Sqlite
+
+    - Shared Preferences
+        - Used typically for non secure data
+        - Shared preferences is a file kept along side the applications APK
+        - Shared preferences uses Key/Value Pairs
+        - Only primitive types and Strings are allowed
+        - To save data to shared preferences,  you must go thru the Shared Preferences editor
+            - Once the value is set in the editor you must either:
+                - commit - Immediately, and returns boolean if the commit actually occured
+                 - OR -
+                - apply - Async. and does not have a return
+
+    - Relation Database
+        - Grouping of data by relation
+        - Relation Databases have:
+            - Tables
+            - Columns
+            - Entries (Entities)
+            - Foreign Keys
+            - Primary Keys - MUST BE UNIQUE
+        - Generally (and i mean 99.9999999%) Uses SQL as the define structured langauge to
+            interact with the database
+        - Crud operations and SQL
+            C - Create - Creating tables
+                - EX: CREATE TABLE PERSON {
+                    firstName String,
+                    lastName String PRIMARY KEY
+                }
+            R - Read   - Getting data from tables
+                EX: SELECT * FROM PERSON          - Get all entries and column values
+                    SELECT firstName FROM PERSON  - Get all entries but only the firstName
+                    SELECT * FROM PERSON WHERE lastName = 'Hoskins' - Get ONLY entries with the last name Hoskins
+            U - Update - Changing state of tables or entries
+            D - Delete - Removal of Entry
+        - SQLite
+            - SQLite is a very simplified DBRM - (program that controls the database)
+            - 1 file per app
+        - SQLite and Android practices
+            - Generally broken into 2 separate parts
+                - Database Contract
+                    - Query Strings
+                    - Column Names
+                    - Table Names
+                    - Database Name
+                    - ect
+                - Database Helper
+                    - The database helper extends from the SqliteOpenHelper
+                    - MUST override 2 methods
+                        - onCreate
+                            - Creates the tables
+                            - only runs once unless invoked elsewhere
+                        - onUpgrade
+                            - Handles the updating of the database when the version of the database
+                                is changed
+                            - Called when current database version is not equal to current configuration
+                        - Inserting and updating
+                            - Uses ContentValues which is a data container with key/ value association
+                                - KEY = Col (Or field)
+                                - Value = value for that field
+                        - Retreiving entries from Database
+                            - Cursor
+                                - Iteriable data container that holds all records retreived from the
+                                    database query

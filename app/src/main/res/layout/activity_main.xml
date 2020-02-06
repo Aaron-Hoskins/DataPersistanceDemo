@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/etSharedPrefInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Please Enter a String Value"/>
+
+    <Button
+        android:id="@+id/btnSaveToSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save value to shared pref"
+        android:onClick="onClick"/>
+    <Button
+        android:id="@+id/btnRetrieveValueFromSharedPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Retrieve value from shared pref"
+        android:onClick="onClick"/>
+
+    <TextView
+        android:id="@+id/tvSharedPrefDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnStartDatabaseActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Database Activity"
+        android:onClick="onClick"/>
+
+</LinearLayout>
