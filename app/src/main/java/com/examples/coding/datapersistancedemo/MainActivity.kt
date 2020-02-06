@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         val editor = sharedPref.edit()
         editor.putString(STRING_KEY, valueToSave)
         editor.apply()
+        Toast.makeText(this, "Value saved to shared pref", Toast.LENGTH_LONG).show()
     }
 
     fun getValueFromSharedPref() {
