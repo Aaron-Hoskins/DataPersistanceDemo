@@ -70,3 +70,27 @@
                             - Cursor
                                 - Iteriable data container that holds all records retreived from the
                                     database query
+        - File Storage
+            - To Write to a file
+                - 2 Objects
+                    - FileOutputStream
+                        - Access the file
+                        - Parameters are:
+                            - File Name
+                            - Write Mode (PRIVATE)
+                    - OutputStreamWriter
+                        - Writes the value to the opened file
+                        - parameter
+                            - Value to write
+            - To Read from a file
+                - 2 Objects
+                    - FileInputStream
+                    - InputStreamReader
+                - Input buffer
+                - char to read current char in buffer
+                - int to read current value in buffer
+                - loop to cycle through the buffer
+            - External File Storage
+                - Requires permissions to read and/or write to External Storage
+                - Check if External File storage is available
+                - To get the the external file storage location, use the getExternalFileDir("<<FILE_NAME>>")

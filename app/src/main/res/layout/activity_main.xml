@@ -39,4 +39,31 @@
         android:text="Start Database Activity"
         android:onClick="onClick"/>
 
+    <EditText
+        android:id="@+id/etFileStorageInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Please Enter a String Value"/>
+
+    <Button
+        android:id="@+id/btnSaveToInternalFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save value to File"
+        android:onClick="onClick"/>
+    <Button
+        android:id="@+id/btnRetrieveValueFromInternalFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Retrieve value from File"
+        android:onClick="onClick"/>
+
+    <TextView
+        android:id="@+id/tvInternalFileDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+
 </LinearLayout>

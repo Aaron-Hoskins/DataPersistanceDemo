@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.*
+import java.lang.StringBuilder
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +23,32 @@ class MainActivity : AppCompatActivity() {
             R.id.btnSaveToSharedPref -> saveValueToSharedPref(etSharedPrefInput.text.toString())
             R.id.btnRetrieveValueFromSharedPref -> getValueFromSharedPref()
             R.id.btnStartDatabaseActivity -> startActivity(Intent(this, DatabaseActivity::class.java))
+            R.id.btnSaveToInternalFile -> {saveStringToInternalFile(etFileStorageInput.text.toString())}
+            R.id.btnRetrieveValueFromInternalFile -> {tvInternalFileDisplay.text = readStringFromInternalFile()}
         }
+    }
+    fun saveStringToInternalFile(valueToSave : String) {
+        val fileOutputStream = openFileOutput("example.txt" , Context.MODE_PRIVATE)
+        val outputStream = OutputStreamWriter(fileOutputStream)
+        outputStream.write(valueToSave)
+        outputStream.close()
+    }
+
+    fun readStringFromInternalFile() : String{
+        val fileInputStream = openFileInput("example.txt")
+        val inputStreamReader = InputStreamReader(fileInputStream)
+
+        var inputBuffer = BufferedReader(inputStreamReader)
+        var stringBuilder = StringBuilder()
+        var currentRead : String? = null
+
+
+        while({currentRead = inputBuffer.readLine(); currentRead}()  != null) {
+            stringBuilder.append(currentRead)
+        }
+
+        inputStreamReader.close()
+        return  stringBuilder.toString()
     }
 
     fun saveValueToSharedPref(valueToSave : String) {
@@ -38,4 +65,6 @@ class MainActivity : AppCompatActivity() {
 
         tvSharedPrefDisplay.text = currentValue
     }
+
+
 }
