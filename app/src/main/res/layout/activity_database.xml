@@ -54,4 +54,11 @@
         android:text="UPDATE PERSON TO LIST"
         android:onClick="onClick"/>
 
+    <Button
+        android:id="@+id/btnGetListUsingContentProvider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Use Content Provider To populate List"
+        android:onClick="onContentProviderClicked"/>
+
 </LinearLayout>

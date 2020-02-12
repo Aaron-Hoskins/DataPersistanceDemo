@@ -94,3 +94,26 @@
                 - Requires permissions to read and/or write to External Storage
                 - Check if External File storage is available
                 - To get the the external file storage location, use the getExternalFileDir("<<FILE_NAME>>")
+    - Content Providers
+        - Used to access and persist data across the system
+        - Can be used locally or by many apps
+        - 2 Types
+            - System Providers
+                - Supplies persisted data on system apps or configurations
+                    - Contacts
+                        - Allows access to users contacts
+                    - Airplane Mode provider
+                        - Allows access to determine state of airplane mode
+            - Custom Providers
+                - Defined by the developer to allow access to data that may be relevant to other apps
+                    or a an abstraction layer for local persistence of data
+        - Generally content providers have 2 parts
+            - Provider
+                - Defines the CRUD operations for that content provider
+            - Contract
+                - Defines the URI and other characteristics of the provider such as:
+                    TableNames, Col Names (Field names), Flags, ect
+        - Providers can be accessed and query data using CONTENT RESOLVERS which takes the URI of the
+            CRUD operation you want to perform
+        - The app hosing the provider MUST specify the provider in its Manifest
+

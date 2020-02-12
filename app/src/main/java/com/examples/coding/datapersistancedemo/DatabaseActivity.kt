@@ -1,5 +1,6 @@
 package com.examples.coding.datapersistancedemo
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -46,5 +47,22 @@ class DatabaseActivity : AppCompatActivity(), PersonCallback {
     private fun initRecyclerView() {
         rvPersonList.layoutManager = LinearLayoutManager(this)
         rvPersonList.adapter = adapter
+    }
+
+    fun onContentProviderClicked(view: View) {
+        val cursor = contentResolver.query(CONTENT_URI, null, null, null, null)
+        val personList = ArrayList<Person>()
+        if(cursor!!.moveToFirst()) {
+            do {
+                val firstName = cursor.getString(cursor.getColumnIndex(COL_FIRST_NAME)) + " CONTENT"
+                val lastName = cursor.getString(cursor.getColumnIndex(COL_LAST_NAME))+ " CONTENT"
+                val ssn = cursor.getString(cursor.getColumnIndex(COL_SSN))+ " CONTENT"
+                val person = Person(firstName, lastName, ssn)
+                personList.add(person)
+            } while(cursor.moveToNext())
+        }
+
+        cursor.close()
+        adapter.updateList(personList)
     }
 }

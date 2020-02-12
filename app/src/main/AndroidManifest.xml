@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.examples.coding.datapersistancedemo">
+    <uses-permission android:name="do.not.hack.my.provider"/>
+    <permission android:name="do.not.hack.my.provider" android:protectionLevel="normal"/>
 
     <application
         android:allowBackup="true"
@@ -9,7 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DatabaseActivity"></activity>
+        <provider
+            android:name=".PersonProvider"
+            android:authorities="com.examples.coding.datapersistancedemo"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="do.not.hack.my.provider"
+            />
+
+        <activity android:name=".DatabaseActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
